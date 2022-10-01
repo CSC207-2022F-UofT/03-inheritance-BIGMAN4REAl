@@ -13,6 +13,10 @@ public abstract class Bag {
      *       - an int named capacity
      *       - an array of Strings named contents
      */
+    String color;
+    int numberOfContents;
+    int capacity;
+    String[] contents;
 
 
 
@@ -27,7 +31,12 @@ public abstract class Bag {
      * its contents.)
      */
 
-
+    public Bag(String color, int capacity){
+        this.capacity = capacity;
+        this.color = color;
+        this.numberOfContents = 0;
+        this.contents = new String[this.capacity];
+    }
 
 
     /*
@@ -38,7 +47,17 @@ public abstract class Bag {
      *           - getCapacity
      */
 
+    public String getColor(){
+        return this.color;
+    }
 
+    public int getNumberOfContents(){
+        return this.numberOfContents;
+    }
+
+    public int getCapacity(){
+        return this.capacity;
+    }
 
 
     /*
@@ -46,8 +65,9 @@ public abstract class Bag {
      *       color of this bag to the given color.
      */
 
-
-
+    public void setColor(String color11){
+        this.color = color11;
+    }
 
 
     /*
@@ -62,7 +82,15 @@ public abstract class Bag {
      */
 
 
-
+    public void addItem(String itemm){
+        if (this.capacity != this.numberOfContents) {
+            this.numberOfContents += 1;
+            this.contents[getNumberOfContents()] = itemm;
+            System.out.println("true");
+        } else {
+            System.out.println("false");
+        }
+    }
 
 
     /**
@@ -76,7 +104,15 @@ public abstract class Bag {
      * @return
      */
 
-
+    public String popItem(){
+        if(this.numberOfContents != 0){
+            String s = (String) contents[getNumberOfContents()];
+            this.numberOfContents -= 1;
+            return s;
+        } else {
+            return null;
+        }
+    }
 
 
 
@@ -86,8 +122,7 @@ public abstract class Bag {
      * @param n the amount to increase this Bag's capacity by
      */
     public void increaseCapacity(int n) {
-        // TODO: Implement this method.
-
+        this.capacity += n;
     }
 
     /**

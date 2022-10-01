@@ -21,6 +21,7 @@ public class HandBag extends Bag{
          * The Python equivalent is super().__init__(...)
          */
         super(color, capacity);
+
     }
 
     /**
@@ -28,6 +29,8 @@ public class HandBag extends Bag{
      */
     @Override
     public void enhance() {
+
+        super.increaseCapacity(1);
         /* TODO: Implement this method.
          *       You may want to use the increaseCapacity() method that was
          *       implemented in Bag.
